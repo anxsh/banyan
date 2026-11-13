@@ -309,13 +309,13 @@
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: 9px;
-      padding: 7px 11px;
+      padding: 6px 11px;
       box-shadow: var(--shadow-sm);
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 4px;
+      gap: 3px;
       transition: background-color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, opacity 0.18s ease;
       overflow: hidden;
     }
@@ -357,6 +357,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 6px;
+      flex-shrink: 0;
+      line-height: 1.25;
     }
     .dos-name {
       font-weight: 700;
@@ -381,13 +383,13 @@
       color: var(--text-muted);
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
-      overflow: hidden;
+      flex-shrink: 0;
     }
     .dos-life-group {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      min-width: 0;
+      flex-shrink: 0;
     }
     .dos-age {
       display: inline-block;
@@ -395,7 +397,7 @@
       border-radius: 999px;
       font-size: 0.66rem;
       font-weight: 600;
-      line-height: 1.45;
+      line-height: 1.4;
       flex-shrink: 0;
     }
     .dos-age.living {
@@ -411,6 +413,7 @@
     .dos-nick {
       color: var(--nick-text);
       font-weight: 600;
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -419,10 +422,12 @@
       padding-top: 4px;
       border-top: 1px solid var(--divider);
       font-size: 0.68rem;
+      line-height: 1.25;
       color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      flex-shrink: 0;
     }
     .dos-row3.has-note {
       color: var(--amber);
@@ -848,9 +853,9 @@
       ROOT_GAP: 32,
       CROSS_SIBLING_CTRL_OFFSET: 38,
       CARD_H_BASE: 38,
-      CARD_H_ROW2: 52,
-      CARD_H_ROW3: 56,
-      CARD_H_BOTH: 72,
+      CARD_H_ROW2: 56,
+      CARD_H_ROW3: 58,
+      CARD_H_BOTH: 78,
       MAX_LIVING_AGE: 115,
       MIN_ZOOM: 0.15,
       MAX_ZOOM: 2.5,
