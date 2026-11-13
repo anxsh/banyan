@@ -65,7 +65,7 @@ banyan/
 - Cross-branch sibling groups (where both siblings are married into another branch of the tree) are rendered as dashed curved arcs on the left edge of the sibling cards.
 - Locks in the **Rich Dossier** card architecture with adaptive 1–3 row heights (`38px` / `52px` / `56px` / `72px`) and uniform all-around `1px` borders (zero single-edge stripes):
   - **Row 1:** Full name (`+ ⚭` mark on indented spouse cards; generation pills removed from individual boxes because the top `Generation N` headers already convey generation).
-  - **Row 2 *(omitted if empty)*:** Compact lifespan (`b. YYYY`, `d. YYYY`, or `YYYY–YYYY`), living vs. deceased age pill (`N yrs` in soft botanical sage for living people within `0–115` years; `N yrs` in muted slate-blue when deceased), and nickname. No `"Dates unknown"` placeholder when dates are absent.
+  - **Row 2 *(omitted if empty)*:** Compact lifespan (`b. YYYY`, `d. YYYY`, or `YYYY–YYYY`), living vs. deceased age pill (`N yrs` in soft botanical sage for living people within `0–115` years; `N yrs` in warm amber-gold when deceased), and nickname. No `"Dates unknown"` placeholder when dates are absent.
   - **Row 3 *(omitted if empty)*:** Biographical note (`📝 ...`) or child count (`N child(ren)`), plus optional marriage year (`m. YYYY`) when recorded—omitting spouse names (`m. <spouse>`) as redundant with the tree layout, as well as `"Child of X & Y"` and `"Family member"` fallbacks.
 - Locks in the **Warm Parchment** light palette (ivory `#fffdf8` / parchment `#f7f1e6` smooth dot-free canvas, espresso ink `#2c1e12`, burnt-sienna `#b45309` accents; no dark mode or multi-palette switcher).
 - Includes a tabbed right-hand drawer combining the **Inspector** (relatives + BFS Relationship Finder) and an interactive syntax-highlighted **`{ } JSON` Side Panel** (`Full Tree` / `Selected` scope toggle, `Copy` button, clickable person slugs, and auto-scroll/highlight of the active person).
@@ -95,8 +95,8 @@ banyan/
 
 ## Changelog
 
-### 2026-11-12 — Slate-Blue Deceased Age Pills (`N yrs`)
-- Removed the `"lived "` / `"Lived "` text prefix on deceased age pills so both cards and the Inspector display concise `N yrs` badges, switching `--age-deceased-*` to muted archival slate-blue (`#e6ecf3` / `#334e68`) to contrast cleanly with the botanical sage living pill (`#e7f3ea` / `#1b5e36`) and matching `1px` pill borders in the Inspector.
+### 2026-11-12 — Warm Amber-Gold Deceased Age Pills (`N yrs`)
+- Removed the `"lived "` / `"Lived "` text prefix on deceased age pills so both cards and the Inspector display concise `N yrs` badges, switching `--age-deceased-*` to warm amber-gold (`#fde8b8` / `#92400e`) to contrast cleanly with the botanical sage living pill (`#e7f3ea` / `#1b5e36`) and matching `1px` pill borders in the Inspector.
 
 ### 2026-11-12 — Modular Package Split, Validated Domain Mutations & Viewer Cleanup
 - Split the monolithic `banyan.py` into focused stdlib-only modules (`banyan/model.py`, `banyan/gramps.py`, `banyan/render.py`, `banyan/viewer.html`, `banyan/cli.py`) with `./banyan.py` kept as a thin entrypoint and `.claude/skills/banyan/SKILL.md` symlinked to `skills/banyan/SKILL.md` to eliminate doc drift.
