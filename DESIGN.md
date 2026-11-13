@@ -14,10 +14,18 @@
 
 ```
 banyan/
-├── banyan.py                       # CLI: import/export Gramps, validate, query, mutate, render HTML
+├── banyan.py                       # Thin executable CLI entrypoint
+├── banyan/                         # Core zero-dependency Python package
+│   ├── __init__.py                 # Public library API re-exports
+│   ├── __main__.py                 # `python3 -m banyan` entrypoint
+│   ├── model.py                    # Schema constants, slugs/IDs, I/O, validation, graph queries & mutations
+│   ├── gramps.py                   # Safe pickle unpickler, Gramps SQLite & XML import/export
+│   ├── render.py                   # HTML template renderer
+│   ├── viewer.html                 # Warm Parchment single-page HTML/CSS/JS viewer template
+│   └── cli.py                      # argparse wiring & CLI subcommands
 ├── AGENTS.md / CLAUDE.md           # Repo-level AI agent instructions & privacy rules
-├── skills/banyan/SKILL.md          # Portable agent skill definition
-├── .claude/skills/banyan/SKILL.md  # Project-scoped skill for Claude Code / Antigravity
+├── skills/banyan/SKILL.md          # Canonical portable agent skill definition
+├── .claude/skills/banyan/SKILL.md  # Symlink -> ../../../skills/banyan/SKILL.md
 ├── examples/
 │   ├── sample.json                 # Generic 4-generation sample family tree (21 people, 9 families)
 │   ├── sample.gramps               # Gramps XML 1.7.1 export of the sample tree
@@ -86,6 +94,12 @@ banyan/
 ---
 
 ## Changelog
+
+### 2026-11-12 — Modular Package Split, Validated Domain Mutations & Viewer Cleanup
+- Split the monolithic `banyan.py` into focused stdlib-only modules (`banyan/model.py`, `banyan/gramps.py`, `banyan/render.py`, `banyan/viewer.html`, `banyan/cli.py`) with `./banyan.py` kept as a thin entrypoint and `.claude/skills/banyan/SKILL.md` symlinked to `skills/banyan/SKILL.md` to eliminate doc drift.
+- Consolidated `PERSON_OPTIONAL_FIELDS`, `VALID_GENDERS`, CLI person flags, shared DB/XML event & note resolvers, and named Gramps serialized tuple indices; moved search and tree mutations into pure library functions in `banyan/model.py` gated by `validate_tree` before writing.
+- Added symmetric `<dateval type="before|after|about"/>` and `<daterange>` round-tripping in Gramps XML import/export and derived XML `change` timestamps from `meta.updated`.
+- Cleaned up `viewer.html` by moving highlight colors and layout constants into `:root` / `CONFIG`, removing dead avatar/gender code, prebuilding the JS relationship graph once, adding `expandPathToPerson`, switching JSON/drawer/search interactions to delegated listeners and in-place `.json-entry-active` updates, removing the `110px` Inspector `.pill` cap, and dismissing search on outside clicks.
 
 ### 2026-11-12 — Renamed Project to `banyan` & Published Open-Source Repo
 - Renamed the CLI (`ftree.py` -> `banyan.py`, `prog="banyan"`), skill folders (`skills/ftree/` -> `skills/banyan/` and `.claude/skills/ftree/` -> `.claude/skills/banyan/`), and documentation/instructions (`README.md`, `DESIGN.md`, `AGENTS.md`, `CLAUDE.md`) to **`banyan`**, inspired by banyan trees branching into new roots across generations.

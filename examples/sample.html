@@ -39,8 +39,27 @@
       --amber-soft: #fff7ed;
       --rose: #be123c;
       --edge: #836c53;
+      --hl-self-bg: #fcedd2;
+      --hl-self-border: #b45309;
+      --hl-anc-bg: #fdf4e7;
+      --hl-anc-border: #c27838;
+      --hl-anc-spouse-bg: #f5e7d3;
+      --hl-anc-spouse-border: #b56e32;
+      --hl-desc-bg: #f2f8f3;
+      --hl-desc-border: #5c9670;
+      --hl-desc-spouse-bg: #e6f0e8;
+      --hl-desc-spouse-border: #528764;
+      --hl-rel-bg: #fcf5ea;
+      --hl-rel-border: #ad8b65;
+      --hl-rel-spouse-bg: #f2e6d5;
+      --hl-rel-spouse-border: #9e7d58;
+      --hl-path-bg: #fdf0f2;
+      --hl-path-spouse-bg: #f8e4e8;
+      --hl-path-border: #be123c;
       --shadow-sm: 0 1px 2px rgba(44, 30, 18, 0.06);
       --shadow-md: 0 8px 20px -4px rgba(44, 30, 18, 0.10), 0 2px 6px -1px rgba(44, 30, 18, 0.05);
+      --shadow-self: 0 8px 22px -4px rgba(146, 64, 14, 0.24), 0 2px 6px -1px rgba(146, 64, 14, 0.12);
+      --shadow-path: 0 6px 16px -3px rgba(190, 18, 60, 0.18);
       --j-bg: #fbf6ec;
       --j-key: #9a3412;
       --j-str: #166534;
@@ -206,6 +225,11 @@
       color: var(--accent);
       border-color: var(--accent);
     }
+    .btn-sm {
+      height: 26px;
+      padding: 0 8px;
+      font-size: 0.71rem;
+    }
 
     /* Canvas Viewport */
     #viewport {
@@ -247,6 +271,18 @@
       padding: 2px 10px;
       white-space: nowrap;
       pointer-events: none;
+    }
+
+    .load-error-card {
+      padding: 18px 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--amber);
+      max-width: 520px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      box-shadow: var(--shadow-md);
     }
 
     /* Edges */
@@ -294,13 +330,13 @@
 
     .pill {
       display: inline-block;
-      padding: 1px 6px;
+      padding: 1px 7px;
       border-radius: 999px;
       font-size: 0.66rem;
       font-weight: 600;
       background: var(--accent-soft);
       color: var(--accent);
-      max-width: 110px;
+      max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -437,51 +473,51 @@
 
     body.has-selection .person-card.hl-self {
       opacity: 1;
-      background: #fcedd2;
-      border-color: #b45309;
-      box-shadow: 0 8px 22px -4px rgba(146, 64, 14, 0.24), 0 2px 6px -1px rgba(146, 64, 14, 0.12);
+      background: var(--hl-self-bg);
+      border-color: var(--hl-self-border);
+      box-shadow: var(--shadow-self);
       z-index: 10;
     }
     body.has-selection .person-card.hl-ancestor {
       opacity: 1;
-      background: #fdf4e7;
-      border-color: #c27838;
+      background: var(--hl-anc-bg);
+      border-color: var(--hl-anc-border);
       box-shadow: var(--shadow-sm);
     }
     body.has-selection .person-card.is-spouse.hl-ancestor {
-      background: #f5e7d3;
-      border-color: #b56e32;
+      background: var(--hl-anc-spouse-bg);
+      border-color: var(--hl-anc-spouse-border);
     }
     body.has-selection .person-card.hl-descendant {
       opacity: 1;
-      background: #f2f8f3;
-      border-color: #5c9670;
+      background: var(--hl-desc-bg);
+      border-color: var(--hl-desc-border);
       box-shadow: var(--shadow-sm);
     }
     body.has-selection .person-card.is-spouse.hl-descendant {
-      background: #e6f0e8;
-      border-color: #528764;
+      background: var(--hl-desc-spouse-bg);
+      border-color: var(--hl-desc-spouse-border);
     }
     body.has-selection .person-card.hl-relative {
       opacity: 1;
-      background: #fcf5ea;
-      border-color: #ad8b65;
+      background: var(--hl-rel-bg);
+      border-color: var(--hl-rel-border);
       box-shadow: var(--shadow-sm);
     }
     body.has-selection .person-card.is-spouse.hl-relative {
-      background: #f2e6d5;
-      border-color: #9e7d58;
+      background: var(--hl-rel-spouse-bg);
+      border-color: var(--hl-rel-spouse-border);
     }
     body.has-selection .person-card.hl-path {
       opacity: 1;
-      background: #fdf0f2;
-      border-color: #be123c;
-      box-shadow: 0 6px 16px -3px rgba(190, 18, 60, 0.18);
+      background: var(--hl-path-bg);
+      border-color: var(--hl-path-border);
+      box-shadow: var(--shadow-path);
       z-index: 9;
     }
     body.has-selection .person-card.is-spouse.hl-path {
-      background: #f8e4e8;
-      border-color: #be123c;
+      background: var(--hl-path-spouse-bg);
+      border-color: var(--hl-path-border);
     }
     body.has-selection .edge-path.hl-edge,
     body.has-selection .marriage-node.hl-edge { opacity: 1; }
@@ -575,6 +611,15 @@
       flex-direction: column;
       gap: 13px;
     }
+    .drawer-empty {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      padding: 12px 0;
+    }
+    .drawer-counts {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
     .drawer-title { font-size: 1.05rem; font-weight: 700; margin: 0; }
     .drawer-sub {
       font-size: 0.74rem;
@@ -610,6 +655,10 @@
     .person-chip:hover {
       border-color: var(--accent);
       background: var(--accent-soft);
+    }
+    .chip-dates {
+      color: var(--text-muted);
+      font-size: 0.7rem;
     }
     .note-box {
       padding: 9px 11px;
@@ -775,7 +824,7 @@
           <button class="json-scope-btn" data-jscope="selected">Selected</button>
         </div>
         <span class="json-meta-label" id="json-meta-label"></span>
-        <button class="btn" id="btn-copy-json" style="height:26px;padding:0 8px;font-size:0.71rem">Copy</button>
+        <button class="btn btn-sm" id="btn-copy-json">Copy</button>
       </div>
       <pre class="json-viewer" id="json-viewer"></pre>
     </div>
@@ -785,17 +834,39 @@
     const JSON_URL = "sample.json";
     const EMBEDDED_TREE_DATA = null;
 
+    // --- Layout & Viewer Configuration ---
+    const CONFIG = {
+      BOX_W: 240,
+      INDENT: 18,
+      SPOUSE_VGAP: 7,
+      ROW_GAP: 14,
+      COL_GAP: 66,
+      BUS_OFFSET: 30,
+      COLLAPSE_BTN_OFFSET: 14,
+      ROOT_GAP: 32,
+      CROSS_SIBLING_CTRL_OFFSET: 38,
+      CARD_H_BASE: 38,
+      CARD_H_ROW2: 52,
+      CARD_H_ROW3: 56,
+      CARD_H_BOTH: 72,
+      MAX_LIVING_AGE: 115,
+      MIN_ZOOM: 0.15,
+      MAX_ZOOM: 2.5,
+      FIT_MIN_ZOOM: 0.42,
+      FIT_MAX_ZOOM: 1.0,
+      CENTER_MIN_ZOOM: 0.85,
+      DRAWER_DESKTOP_OFFSET: 200,
+      DRAWER_BREAKPOINT: 960,
+      SEARCH_LIMIT: 12,
+    };
+
     // --- State ---
     let selectedPersonId = null;
     let drawerTab = "inspector"; // "inspector" | "json"
     let jsonScope = "full";      // "full" | "selected"
     let relTargetId = "";
+    let renderedJsonSignature = null;
     const collapsedFamilies = new Set();
-
-    const BOX_W = 240;
-    const INDENT = 18;
-    const SPOUSE_VGAP = 7;
-    const ROW_GAP = 14;
 
     // Pan & Zoom state
     let scale = 1;
@@ -812,6 +883,7 @@
     let familyById = {};
     let childOfFamily = {};
     let parentInFamilies = {};
+    let relationshipAdj = {};
 
     function resolveJsonUrl(relUrl) {
       if (/^(https?:)?\/\//i.test(relUrl) || relUrl.startsWith("/")) return relUrl;
@@ -830,15 +902,67 @@
       familyById = {};
       childOfFamily = {};
       parentInFamilies = {};
-      Object.keys(people).forEach(pid => { parentInFamilies[pid] = []; });
+      relationshipAdj = {};
+      renderedJsonSignature = null;
+
+      Object.keys(people).forEach(pid => {
+        parentInFamilies[pid] = [];
+        relationshipAdj[pid] = [];
+      });
+
+      const addRelEdge = (u, v, lbl) => {
+        if (relationshipAdj[u] && relationshipAdj[v] && u !== v) {
+          relationshipAdj[u].push({ to: v, lbl });
+        }
+      };
+
       families.forEach(f => {
         familyById[f.id] = f;
         if (f.father && parentInFamilies[f.father]) parentInFamilies[f.father].push(f);
         if (f.mother && parentInFamilies[f.mother]) parentInFamilies[f.mother].push(f);
-        (f.children || []).forEach(cid => {
-          if (people[cid]) childOfFamily[cid] = f;
+        const ch = (f.children || []).filter(cid => Boolean(people[cid]));
+        ch.forEach(cid => { childOfFamily[cid] = f; });
+
+        const fa = f.father, mo = f.mother;
+        if (fa && mo && people[fa] && people[mo]) {
+          addRelEdge(fa, mo, "spouse");
+          addRelEdge(mo, fa, "spouse");
+        }
+        [fa, mo].forEach(par => {
+          if (par && people[par]) {
+            const parLbl = people[par].gender === "M" ? "father" : (people[par].gender === "F" ? "mother" : "parent");
+            ch.forEach(c => {
+              const chLbl = people[c].gender === "M" ? "son" : (people[c].gender === "F" ? "daughter" : "child");
+              addRelEdge(par, c, chLbl);
+              addRelEdge(c, par, parLbl);
+            });
+          }
         });
+        for (let i = 0; i < ch.length; i++) {
+          for (let j = i + 1; j < ch.length; j++) {
+            const c1 = ch[i], c2 = ch[j];
+            addRelEdge(c1, c2, people[c2].gender === "M" ? "brother" : (people[c2].gender === "F" ? "sister" : "sibling"));
+            addRelEdge(c2, c1, people[c1].gender === "M" ? "brother" : (people[c1].gender === "F" ? "sister" : "sibling"));
+          }
+        }
       });
+    }
+
+    function getPersonFamilies(pid) {
+      if (!pid || !people[pid]) return [];
+      const seen = new Set();
+      const result = [];
+      if (childOfFamily[pid]) {
+        seen.add(childOfFamily[pid].id);
+        result.push(childOfFamily[pid]);
+      }
+      (parentInFamilies[pid] || []).forEach(f => {
+        if (!seen.has(f.id)) {
+          seen.add(f.id);
+          result.push(f);
+        }
+      });
+      return result;
     }
 
     function countDescendants(famId, seen = new Set()) {
@@ -879,14 +1003,6 @@
       const p = people[pid];
       if (!p) return pid;
       return [p.first, p.surname].filter(Boolean).join(" ");
-    }
-
-    function initials(pid) {
-      const p = people[pid];
-      if (!p) return "?";
-      const a = (p.first || "").trim().charAt(0);
-      const b = (p.surname || "").trim().charAt(0);
-      return (a + b).toUpperCase() || a.toUpperCase() || "?";
     }
 
     function extractYear(s) {
@@ -948,7 +1064,7 @@
           years -= 1;
         }
       }
-      if (years < 0 || years > 115) return null;
+      if (years < 0 || years > CONFIG.MAX_LIVING_AGE) return null;
       return {
         years,
         isDeceased: false,
@@ -1000,10 +1116,10 @@
       const footer = dossierFooter(pid);
       const hasRow2 = Boolean(dt || ageInfo || nick);
       const hasRow3 = Boolean(footer);
-      let h = 38;
-      if (hasRow2 && hasRow3) h = 72;
-      else if (hasRow3) h = 56;
-      else if (hasRow2) h = 52;
+      let h = CONFIG.CARD_H_BASE;
+      if (hasRow2 && hasRow3) h = CONFIG.CARD_H_BOTH;
+      else if (hasRow3) h = CONFIG.CARD_H_ROW3;
+      else if (hasRow2) h = CONFIG.CARD_H_ROW2;
       return { dt, ageInfo, nick, footer, hasRow2, hasRow3, h };
     }
 
@@ -1019,7 +1135,7 @@
     // Classic Gramps Descendant Layout (Left-to-Right Top-Aligned Columns)
     // =========================================================================
     function computeClassicSvgLayout() {
-      const COL_STEP = BOX_W + 66;
+      const COL_STEP = CONFIG.BOX_W + CONFIG.COL_GAP;
 
       const placedPeople = new Set();
       const placedFamilies = new Set();
@@ -1036,7 +1152,7 @@
         personPos[pid] = {
           x,
           y: yStart,
-          w: BOX_W,
+          w: CONFIG.BOX_W,
           h: pH,
           gen,
           isSpouse: false,
@@ -1053,12 +1169,12 @@
 
           if (sp && people[sp] && !placedPeople.has(sp)) {
             placedPeople.add(sp);
-            const spY = curCoupleBottom + SPOUSE_VGAP;
+            const spY = curCoupleBottom + CONFIG.SPOUSE_VGAP;
             const spH = getCardData(sp).h;
             personPos[sp] = {
-              x: x + INDENT,
+              x: x + CONFIG.INDENT,
               y: spY,
-              w: BOX_W - INDENT,
+              w: CONFIG.BOX_W - CONFIG.INDENT,
               h: spH,
               gen,
               isSpouse: true,
@@ -1075,18 +1191,18 @@
             validChildren.forEach(cid => {
               const chHeight = layoutSubtree(cid, gen + 1, childY);
               renderedChildren.push(cid);
-              childY += chHeight + ROW_GAP;
+              childY += chHeight + CONFIG.ROW_GAP;
             });
             if (validChildren.length > 0) {
-              maxChildrenBottom = Math.max(maxChildrenBottom, childY - ROW_GAP);
+              maxChildrenBottom = Math.max(maxChildrenBottom, childY - CONFIG.ROW_GAP);
             }
           }
 
           familyPos[f.id] = {
             id: f.id,
-            jX: x + BOX_W,
+            jX: x + CONFIG.BOX_W,
             jY: connectorOriginY,
-            busX: x + BOX_W + 30,
+            busX: x + CONFIG.BOX_W + CONFIG.BUS_OFFSET,
             children: renderedChildren,
             totalChildren: (f.children || []).length,
             collapsed: collapsedFamilies.has(f.id),
@@ -1103,13 +1219,13 @@
         const rootPid = rf.father || rf.mother || (rf.children || [])[0];
         if (!rootPid || placedPeople.has(rootPid)) return;
         const h = layoutSubtree(rootPid, 0, cursorY);
-        cursorY += h + 32;
+        cursorY += h + CONFIG.ROOT_GAP;
       });
 
       Object.keys(people).forEach(pid => {
         if (!placedPeople.has(pid)) {
           const h = layoutSubtree(pid, 0, cursorY);
-          cursorY += h + 32;
+          cursorY += h + CONFIG.ROOT_GAP;
         }
       });
 
@@ -1201,7 +1317,7 @@
         if (totalChildren > 0) {
           const mNode = document.createElement("div");
           mNode.className = "marriage-node" + (collapsed ? " collapsed" : "");
-          mNode.style.left = `${jX + 14}px`;
+          mNode.style.left = `${jX + CONFIG.COLLAPSE_BTN_OFFSET}px`;
           mNode.style.top = `${jY}px`;
           mNode.dataset.famId = id;
           const descCount = countDescendants(id);
@@ -1227,7 +1343,7 @@
           const arc = document.createElementNS("http://www.w3.org/2000/svg", "path");
           const y1 = p1.y + p1.h / 2;
           const y2 = p2.y + p2.h / 2;
-          const ctrlX = Math.min(p1.x, p2.x) - 38;
+          const ctrlX = Math.min(p1.x, p2.x) - CONFIG.CROSS_SIBLING_CTRL_OFFSET;
           arc.setAttribute("d", `M ${p1.x} ${y1} C ${ctrlX} ${y1}, ${ctrlX} ${y2}, ${p2.x} ${y2}`);
           arc.setAttribute("class", "cross-sibling-arc");
           arc.dataset.sibA = ch[i];
@@ -1238,7 +1354,6 @@
 
       // 3. Person Cards
       Object.entries(personPos).forEach(([pid, pos]) => {
-        const p = people[pid];
         const card = document.createElement("div");
         card.className = "person-card" + (pos.isSpouse ? " is-spouse" : "");
         card.style.left = `${pos.x}px`;
@@ -1246,7 +1361,6 @@
         card.style.width = `${pos.w}px`;
         card.style.height = `${pos.h}px`;
         card.dataset.pid = pid;
-        card.dataset.gender = p.gender || "U";
         card.innerHTML = buildCardContent(pid, pos);
 
         card.addEventListener("click", (e) => {
@@ -1327,50 +1441,60 @@
 
     function findPathJS(startId, targetId) {
       if (!people[startId] || !people[targetId] || startId === targetId) return null;
-      const adj = {};
-      Object.keys(people).forEach(k => { adj[k] = []; });
-      function add(u, v, lbl) {
-        if (adj[u] && adj[v] && u !== v) adj[u].push({ to: v, lbl });
-      }
-      families.forEach(f => {
-        const fa = f.father, mo = f.mother;
-        const ch = (f.children || []).filter(c => people[c]);
-        if (fa && mo && people[fa] && people[mo]) {
-          add(fa, mo, "spouse");
-          add(mo, fa, "spouse");
-        }
-        [fa, mo].forEach(par => {
-          if (par && people[par]) {
-            const parLbl = people[par].gender === "M" ? "father" : (people[par].gender === "F" ? "mother" : "parent");
-            ch.forEach(c => {
-              const chLbl = people[c].gender === "M" ? "son" : (people[c].gender === "F" ? "daughter" : "child");
-              add(par, c, chLbl);
-              add(c, par, parLbl);
-            });
-          }
-        });
-        for (let i = 0; i < ch.length; i++) {
-          for (let j = i + 1; j < ch.length; j++) {
-            const c1 = ch[i], c2 = ch[j];
-            add(c1, c2, people[c2].gender === "M" ? "brother" : (people[c2].gender === "F" ? "sister" : "sibling"));
-            add(c2, c1, people[c1].gender === "M" ? "brother" : (people[c1].gender === "F" ? "sister" : "sibling"));
-          }
-        }
-      });
-
-      const queue = [[startId, []]];
+      const queue = [startId];
       const visited = new Set([startId]);
-      while (queue.length > 0) {
-        const [cur, path] = queue.shift();
-        for (const edge of adj[cur] || []) {
+      const prev = {};
+
+      for (let head = 0; head < queue.length; head++) {
+        const cur = queue[head];
+        for (const edge of relationshipAdj[cur] || []) {
           if (visited.has(edge.to)) continue;
-          const nextPath = [...path, { from: cur, lbl: edge.lbl, to: edge.to }];
-          if (edge.to === targetId) return nextPath;
           visited.add(edge.to);
-          queue.push([edge.to, nextPath]);
+          prev[edge.to] = { from: cur, lbl: edge.lbl };
+          if (edge.to === targetId) {
+            const steps = [];
+            let node = targetId;
+            while (node !== startId) {
+              const step = prev[node];
+              steps.push({ from: step.from, lbl: step.lbl, to: node });
+              node = step.from;
+            }
+            steps.reverse();
+            return steps;
+          }
+          queue.push(edge.to);
         }
       }
       return null;
+    }
+
+    function expandPathToPerson(pid) {
+      const queue = [pid];
+      const seen = new Set([pid]);
+      let changed = false;
+      for (let head = 0; head < queue.length; head++) {
+        const cur = queue[head];
+        const cf = childOfFamily[cur];
+        if (cf) {
+          if (collapsedFamilies.delete(cf.id)) changed = true;
+          [cf.father, cf.mother].forEach(par => {
+            if (par && people[par] && !seen.has(par)) {
+              seen.add(par);
+              queue.push(par);
+            }
+          });
+        } else {
+          // Spouses/in-laws with no birth family may sit inside a collapsed spouse branch.
+          (parentInFamilies[cur] || []).forEach(f => {
+            const sp = f.father === cur ? f.mother : f.father;
+            if (sp && people[sp] && !seen.has(sp)) {
+              seen.add(sp);
+              queue.push(sp);
+            }
+          });
+        }
+      }
+      return changed;
     }
 
     // --- Selection, Highlighting & Drawer Tabs ---
@@ -1419,8 +1543,12 @@
       }
 
       if (currentLayout && !currentLayout.personPos[pid]) {
-        collapsedFamilies.clear();
+        expandPathToPerson(pid);
         renderTree();
+        if (!currentLayout.personPos[pid]) {
+          collapsedFamilies.clear();
+          renderTree();
+        }
       }
       applySelectionHighlights();
       if (panToCard && currentLayout && currentLayout.personPos[pid]) {
@@ -1503,7 +1631,7 @@
     function renderInspector(pid) {
       const body = document.getElementById("drawer-body");
       if (!pid || !people[pid]) {
-        body.innerHTML = `<div style="color:var(--text-muted);font-size:0.84rem;padding:12px 0;">
+        body.innerHTML = `<div class="drawer-empty">
           Select a person on the tree to inspect their details and find relationships.
         </div>`;
         return;
@@ -1521,7 +1649,7 @@
           const dt = lifespan(id, "dash");
           return `<button class="person-chip" data-goto="${escapeHtml(id)}">
             <span>${escapeHtml(fullName(id))}</span>
-            ${dt ? `<span style="color:var(--text-muted);font-size:0.7rem">${escapeHtml(dt)}</span>` : ""}
+            ${dt ? `<span class="chip-dates">${escapeHtml(dt)}</span>` : ""}
           </button>`;
         }).join("");
         return `<div>
@@ -1576,7 +1704,7 @@
         </div>
         <div class="chip-list">${metaBadges.join("")}</div>
         ${p.note ? `<div class="note-box">${escapeHtml(p.note)}</div>` : ""}
-        <div style="font-size:0.76rem;color:var(--text-muted)">
+        <div class="drawer-counts">
           ${anc.size} direct ancestor(s) · ${desc.size} descendant(s)
         </div>
         ${chipGroup("Parents", parents)}
@@ -1589,21 +1717,6 @@
           ${relStepsHtml}
         </div>
       `;
-
-      body.querySelectorAll("[data-goto]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          selectPerson(btn.dataset.goto, true);
-        });
-      });
-
-      const relSelect = document.getElementById("rel-finder-select");
-      if (relSelect) {
-        relSelect.addEventListener("change", (e) => {
-          relTargetId = e.target.value;
-          applySelectionHighlights();
-          renderInspector(pid);
-        });
-      }
     }
 
     // =========================================================================
@@ -1647,13 +1760,8 @@
       return `<div class="json-entry${activeCls}" id="json-person-${escapeHtml(pid)}">${lines.join("\n")}</div>`;
     }
 
-    function renderFamilyJsonBlock(fam, indent, trailingComma) {
+    function renderFamilyJsonBlock(fam, indent, trailingComma, activeFamIds) {
       const keys = Object.keys(fam);
-      const isRel = selectedPersonId && (
-        fam.father === selectedPersonId ||
-        fam.mother === selectedPersonId ||
-        (fam.children || []).includes(selectedPersonId)
-      );
       const lines = [];
       lines.push(`${indent}<span class="j-punc">{</span>`);
       keys.forEach((k, idx) => {
@@ -1676,21 +1784,31 @@
         }
       });
       lines.push(`${indent}<span class="j-punc">}${trailingComma ? "," : ""}</span>`);
-      const activeCls = isRel ? " json-entry-active" : "";
+      const activeCls = activeFamIds.has(fam.id) ? " json-entry-active" : "";
       return `<div class="json-entry${activeCls}" data-json-fam="${escapeHtml(fam.id)}">${lines.join("\n")}</div>`;
     }
 
     function getSelectedJsonPayload() {
       if (!selectedPersonId || !people[selectedPersonId]) return TREE_DATA;
-      const relatedFamilies = families.filter(f =>
-        f.father === selectedPersonId ||
-        f.mother === selectedPersonId ||
-        (f.children || []).includes(selectedPersonId)
-      );
       return {
         person: { [selectedPersonId]: people[selectedPersonId] },
-        families: relatedFamilies,
+        families: getPersonFamilies(selectedPersonId),
       };
+    }
+
+    function updateFullJsonHighlights(viewer, activeFamIds) {
+      viewer.querySelectorAll(".json-entry-active").forEach(el => {
+        el.classList.remove("json-entry-active");
+      });
+      if (selectedPersonId && people[selectedPersonId]) {
+        const personEl = document.getElementById(`json-person-${selectedPersonId}`);
+        if (personEl) personEl.classList.add("json-entry-active");
+        viewer.querySelectorAll("[data-json-fam]").forEach(el => {
+          if (activeFamIds.has(el.dataset.jsonFam)) {
+            el.classList.add("json-entry-active");
+          }
+        });
+      }
     }
 
     function renderJsonPanel(scrollToSelected = false) {
@@ -1700,29 +1818,31 @@
         btn.classList.toggle("active", btn.dataset.jscope === jsonScope);
       });
 
+      const activeFamIds = new Set(getPersonFamilies(selectedPersonId).map(f => f.id));
+
       if (jsonScope === "selected" && selectedPersonId && people[selectedPersonId]) {
         metaLabel.textContent = `#${selectedPersonId}`;
-        const relFams = families.filter(f =>
-          f.father === selectedPersonId ||
-          f.mother === selectedPersonId ||
-          (f.children || []).includes(selectedPersonId)
-        );
-        const out = [];
-        out.push(`<span class="j-punc">{</span>`);
-        out.push(`  ${formatJsonKey("person")}<span class="j-punc">: {</span>`);
-        out.push(renderPersonJsonBlock(selectedPersonId, "    ", false));
-        out.push(`  <span class="j-punc">},</span>`);
-        if (relFams.length === 0) {
-          out.push(`  ${formatJsonKey("families")}<span class="j-punc">: []</span>`);
-        } else {
-          out.push(`  ${formatJsonKey("families")}<span class="j-punc">: [</span>`);
-          relFams.forEach((fam, idx) => {
-            out.push(renderFamilyJsonBlock(fam, "    ", idx < relFams.length - 1));
-          });
-          out.push(`  <span class="j-punc">]</span>`);
+        const sig = `selected:${selectedPersonId}`;
+        if (renderedJsonSignature !== sig) {
+          const relFams = getPersonFamilies(selectedPersonId);
+          const out = [];
+          out.push(`<span class="j-punc">{</span>`);
+          out.push(`  ${formatJsonKey("person")}<span class="j-punc">: {</span>`);
+          out.push(renderPersonJsonBlock(selectedPersonId, "    ", false));
+          out.push(`  <span class="j-punc">},</span>`);
+          if (relFams.length === 0) {
+            out.push(`  ${formatJsonKey("families")}<span class="j-punc">: []</span>`);
+          } else {
+            out.push(`  ${formatJsonKey("families")}<span class="j-punc">: [</span>`);
+            relFams.forEach((fam, idx) => {
+              out.push(renderFamilyJsonBlock(fam, "    ", idx < relFams.length - 1, activeFamIds));
+            });
+            out.push(`  <span class="j-punc">]</span>`);
+          }
+          out.push(`<span class="j-punc">}</span>`);
+          viewer.innerHTML = out.join("\n");
+          renderedJsonSignature = sig;
         }
-        out.push(`<span class="j-punc">}</span>`);
-        viewer.innerHTML = out.join("\n");
       } else {
         if (jsonScope === "selected") {
           metaLabel.textContent = "No person selected (showing full)";
@@ -1732,42 +1852,38 @@
           const href = resolveJsonUrl(JSON_URL);
           metaLabel.innerHTML = `<a href="${escapeHtml(href)}" target="_blank" rel="noopener" title="Open raw JSON">${escapeHtml(JSON_URL)} ↗</a>`;
         }
-        const out = [];
-        out.push(`<span class="j-punc">{</span>`);
-        // meta
-        const meta = TREE_DATA.meta || {};
-        const metaKeys = Object.keys(meta);
-        out.push(`  ${formatJsonKey("meta")}<span class="j-punc">: {</span>`);
-        metaKeys.forEach((mk, idx) => {
-          const comma = idx < metaKeys.length - 1 ? `<span class="j-punc">,</span>` : "";
-          out.push(`    ${formatJsonKey(mk)}<span class="j-punc">: </span>${formatJsonScalar(meta[mk])}${comma}`);
-        });
-        out.push(`  <span class="j-punc">},</span>`);
 
-        // people
-        const pKeys = Object.keys(people);
-        out.push(`  ${formatJsonKey("people")}<span class="j-punc">: {</span>`);
-        pKeys.forEach((pid, idx) => {
-          out.push(renderPersonJsonBlock(pid, "    ", idx < pKeys.length - 1));
-        });
-        out.push(`  <span class="j-punc">},</span>`);
+        if (renderedJsonSignature === "full") {
+          updateFullJsonHighlights(viewer, activeFamIds);
+        } else {
+          const out = [];
+          out.push(`<span class="j-punc">{</span>`);
+          const meta = TREE_DATA.meta || {};
+          const metaKeys = Object.keys(meta);
+          out.push(`  ${formatJsonKey("meta")}<span class="j-punc">: {</span>`);
+          metaKeys.forEach((mk, idx) => {
+            const comma = idx < metaKeys.length - 1 ? `<span class="j-punc">,</span>` : "";
+            out.push(`    ${formatJsonKey(mk)}<span class="j-punc">: </span>${formatJsonScalar(meta[mk])}${comma}`);
+          });
+          out.push(`  <span class="j-punc">},</span>`);
 
-        // families
-        out.push(`  ${formatJsonKey("families")}<span class="j-punc">: [</span>`);
-        families.forEach((fam, idx) => {
-          out.push(renderFamilyJsonBlock(fam, "    ", idx < families.length - 1));
-        });
-        out.push(`  <span class="j-punc">]</span>`);
-        out.push(`<span class="j-punc">}</span>`);
-        viewer.innerHTML = out.join("\n");
+          const pKeys = Object.keys(people);
+          out.push(`  ${formatJsonKey("people")}<span class="j-punc">: {</span>`);
+          pKeys.forEach((pid, idx) => {
+            out.push(renderPersonJsonBlock(pid, "    ", idx < pKeys.length - 1));
+          });
+          out.push(`  <span class="j-punc">},</span>`);
+
+          out.push(`  ${formatJsonKey("families")}<span class="j-punc">: [</span>`);
+          families.forEach((fam, idx) => {
+            out.push(renderFamilyJsonBlock(fam, "    ", idx < families.length - 1, activeFamIds));
+          });
+          out.push(`  <span class="j-punc">]</span>`);
+          out.push(`<span class="j-punc">}</span>`);
+          viewer.innerHTML = out.join("\n");
+          renderedJsonSignature = "full";
+        }
       }
-
-      viewer.querySelectorAll("[data-jslug]").forEach(el => {
-        el.addEventListener("click", (e) => {
-          e.stopPropagation();
-          selectPerson(el.dataset.jslug, true);
-        });
-      });
 
       if (scrollToSelected && selectedPersonId && jsonScope === "full") {
         const targetEl = document.getElementById(`json-person-${selectedPersonId}`);
@@ -1801,7 +1917,7 @@
       const padTop = 108;
       const availW = window.innerWidth - padX * 2;
 
-      scale = Math.min(1.0, Math.max(0.42, availW / (treeW + 40)));
+      scale = Math.min(CONFIG.FIT_MAX_ZOOM, Math.max(CONFIG.FIT_MIN_ZOOM, availW / (treeW + 40)));
       panX = Math.max(36, (window.innerWidth - treeW * scale) / 2 - minX * scale);
       panY = padTop - minY * scale;
       updateTransform();
@@ -1810,8 +1926,8 @@
     function centerOnPerson(pid) {
       if (!currentLayout || !currentLayout.personPos[pid]) return;
       const pos = currentLayout.personPos[pid];
-      scale = Math.max(scale, 0.85);
-      const drawerOffset = window.innerWidth > 960 ? 200 : 0;
+      scale = Math.max(scale, CONFIG.CENTER_MIN_ZOOM);
+      const drawerOffset = window.innerWidth > CONFIG.DRAWER_BREAKPOINT ? CONFIG.DRAWER_DESKTOP_OFFSET : 0;
       panX = (window.innerWidth - drawerOffset) / 2 - (pos.x + pos.w / 2) * scale;
       panY = window.innerHeight / 2 - (pos.y + pos.h / 2) * scale;
       updateTransform();
@@ -1847,7 +1963,7 @@
     viewport.addEventListener("wheel", (e) => {
       e.preventDefault();
       const zoomFactor = Math.exp(-e.deltaY * 0.0015);
-      const nextScale = Math.min(2.5, Math.max(0.15, scale * zoomFactor));
+      const nextScale = Math.min(CONFIG.MAX_ZOOM, Math.max(CONFIG.MIN_ZOOM, scale * zoomFactor));
       const rect = viewport.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
@@ -1857,7 +1973,7 @@
       updateTransform();
     }, { passive: false });
 
-    // --- Search ---
+    // --- Search & Delegated Listeners ---
     const searchInput = document.getElementById("search-input");
     const searchResults = document.getElementById("search-results");
 
@@ -1871,7 +1987,7 @@
         const p = people[pid];
         const hay = `${p.first || ""} ${p.surname || ""} ${p.nick || ""} ${p.birth || ""} ${p.death || ""} ${p.note || ""} ${pid}`.toLowerCase();
         return hay.includes(q);
-      }).slice(0, 12);
+      }).slice(0, CONFIG.SEARCH_LIMIT);
 
       if (matches.length === 0) {
         searchResults.innerHTML = `<div class="search-item"><span class="search-item-sub">No matching person</span></div>`;
@@ -1886,14 +2002,40 @@
         }).join("");
       }
       searchResults.classList.add("open");
+    });
 
-      searchResults.querySelectorAll("[data-pid]").forEach(item => {
-        item.addEventListener("click", () => {
-          searchResults.classList.remove("open");
-          searchInput.value = "";
-          selectPerson(item.dataset.pid, true);
-        });
-      });
+    searchResults.addEventListener("click", (e) => {
+      const item = e.target.closest("[data-pid]");
+      if (!item) return;
+      searchResults.classList.remove("open");
+      searchInput.value = "";
+      selectPerson(item.dataset.pid, true);
+    });
+
+    document.addEventListener("pointerdown", (e) => {
+      if (!e.target.closest(".search-wrap")) {
+        searchResults.classList.remove("open");
+      }
+    });
+
+    document.getElementById("drawer-body").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-goto]");
+      if (chip) selectPerson(chip.dataset.goto, true);
+    });
+
+    document.getElementById("drawer-body").addEventListener("change", (e) => {
+      if (e.target && e.target.id === "rel-finder-select" && selectedPersonId) {
+        relTargetId = e.target.value;
+        applySelectionHighlights();
+        renderInspector(selectedPersonId);
+      }
+    });
+
+    document.getElementById("json-viewer").addEventListener("click", (e) => {
+      const slugEl = e.target.closest("[data-jslug]");
+      if (!slugEl) return;
+      e.stopPropagation();
+      selectPerson(slugEl.dataset.jslug, true);
     });
 
     // --- Drawer Tabs & Toolbar ---
@@ -1988,7 +2130,7 @@
           ? `Cannot fetch "${JSON_URL}" over file://. Serve this folder over HTTP (e.g. python3 -m http.server) or render with --embed.`
           : `Failed to load "${JSON_URL}": ${err.message}`;
         document.getElementById("nodes-layer").innerHTML =
-          `<div style="padding:18px 22px;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--amber);max-width:520px;font-size:0.86rem;line-height:1.5;box-shadow:var(--shadow-md)"><strong>Unable to load family tree JSON</strong><br/>${escapeHtml(msg)}</div>`;
+          `<div class="load-error-card"><strong>Unable to load family tree JSON</strong><br/>${escapeHtml(msg)}</div>`;
       }
     }
     initTreeViewer();
