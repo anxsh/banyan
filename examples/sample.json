@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Sterling & Okafor Family Tree",
+    "updated": "2026-11-12"
+  },
+  "people": {
+    "clara-sterling": {
+      "first": "Clara",
+      "surname": "Sterling",
+      "nick": "Nana",
+      "gender": "F",
+      "birth": "1904",
+      "death": "1991",
+      "note": "Founded the Sterling community library in 1948"
+    },
+    "arthur-sterling": {
+      "first": "Arthur",
+      "surname": "Sterling",
+      "gender": "M",
+      "birth": "1901",
+      "death": "1978"
+    },
+    "eleanor-sterling": {
+      "first": "Eleanor",
+      "surname": "Sterling",
+      "nick": "Ellie",
+      "gender": "F",
+      "birth": "1930",
+      "death": "2016"
+    },
+    "henry-vance": {
+      "first": "Henry",
+      "surname": "Vance",
+      "gender": "M",
+      "birth": "1928",
+      "death": "2009",
+      "note": "Botanist and avid mountaineer"
+    },
+    "walter-sterling": {
+      "first": "Walter",
+      "surname": "Sterling",
+      "nick": "Walt",
+      "gender": "M",
+      "birth": "1933",
+      "death": "2019"
+    },
+    "martha-chen": {
+      "first": "Martha",
+      "surname": "Chen",
+      "gender": "F",
+      "birth": "1936"
+    },
+    "david-vance": {
+      "first": "David",
+      "surname": "Vance",
+      "gender": "M",
+      "birth": "1956"
+    },
+    "amara-okafor": {
+      "first": "Amara",
+      "surname": "Okafor",
+      "gender": "F",
+      "birth": "1958",
+      "note": "Architect and urban historian"
+    },
+    "helen-vance": {
+      "first": "Helen",
+      "surname": "Vance",
+      "gender": "F",
+      "birth": "1959"
+    },
+    "chidi-okafor": {
+      "first": "Chidi",
+      "surname": "Okafor",
+      "gender": "M",
+      "birth": "1955"
+    },
+    "simon-sterling": {
+      "first": "Simon",
+      "surname": "Sterling",
+      "gender": "M",
+      "birth": "1962"
+    },
+    "nora-sterling": {
+      "first": "Nora",
+      "surname": "Sterling",
+      "nick": "Nori",
+      "gender": "F",
+      "birth": "1965"
+    },
+    "elena-rossi": {
+      "first": "Elena",
+      "surname": "Rossi",
+      "gender": "F",
+      "birth": "1964"
+    },
+    "maya-vance": {
+      "first": "Maya",
+      "surname": "Vance",
+      "gender": "F",
+      "birth": "1986"
+    },
+    "liam-patel": {
+      "first": "Liam",
+      "surname": "Patel",
+      "gender": "M",
+      "birth": "1985"
+    },
+    "jonah-vance": {
+      "first": "Jonah",
+      "surname": "Vance",
+      "nick": "Jo",
+      "gender": "M",
+      "birth": "1989"
+    },
+    "tobi-okafor": {
+      "first": "Tobi",
+      "surname": "Okafor",
+      "gender": "M",
+      "birth": "1988"
+    },
+    "zara-okafor": {
+      "first": "Zara",
+      "surname": "Okafor",
+      "gender": "F",
+      "birth": "1991"
+    },
+    "leo-sterling": {
+      "first": "Leo",
+      "surname": "Sterling",
+      "gender": "M",
+      "birth": "1995"
+    },
+    "aria-patel": {
+      "first": "Aria",
+      "surname": "Patel",
+      "gender": "F",
+      "birth": "2016"
+    },
+    "noah-patel": {
+      "first": "Noah",
+      "surname": "Patel",
+      "gender": "M",
+      "birth": "2019"
+    }
+  },
+  "families": [
+    {
+      "id": "arthur-sterling+clara-sterling",
+      "father": "arthur-sterling",
+      "mother": "clara-sterling",
+      "children": [
+        "eleanor-sterling",
+        "walter-sterling"
+      ]
+    },
+    {
+      "id": "henry-vance+eleanor-sterling",
+      "father": "henry-vance",
+      "mother": "eleanor-sterling",
+      "children": [
+        "david-vance",
+        "helen-vance"
+      ]
+    },
+    {
+      "id": "walter-sterling+martha-chen",
+      "father": "walter-sterling",
+      "mother": "martha-chen",
+      "children": [
+        "simon-sterling",
+        "nora-sterling"
+      ]
+    },
+    {
+      "id": "david-vance+amara-okafor",
+      "father": "david-vance",
+      "mother": "amara-okafor",
+      "children": [
+        "maya-vance",
+        "jonah-vance"
+      ]
+    },
+    {
+      "id": "chidi-okafor+helen-vance",
+      "father": "chidi-okafor",
+      "mother": "helen-vance",
+      "children": [
+        "tobi-okafor",
+        "zara-okafor"
+      ]
+    },
+    {
+      "id": "siblings-amara-okafor+chidi-okafor",
+      "children": [
+        "amara-okafor",
+        "chidi-okafor"
+      ]
+    },
+    {
+      "id": "simon-sterling+elena-rossi",
+      "father": "simon-sterling",
+      "mother": "elena-rossi",
+      "children": []
+    },
+    {
+      "id": "nora-sterling-family",
+      "mother": "nora-sterling",
+      "children": [
+        "leo-sterling"
+      ]
+    },
+    {
+      "id": "liam-patel+maya-vance",
+      "father": "liam-patel",
+      "mother": "maya-vance",
+      "children": [
+        "aria-patel",
+        "noah-patel"
+      ]
+    }
+  ]
+}

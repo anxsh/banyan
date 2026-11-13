@@ -1,0 +1,12 @@
+# Private family data (never commit)
+private/
+*.local.json
+*.local.html
+*.local.gramps
+data.gramps
+
+# Python / OS artifacts
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
