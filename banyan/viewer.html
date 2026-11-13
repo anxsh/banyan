@@ -28,9 +28,9 @@
       --age-living-bg: #e7f3ea;
       --age-living-text: #1b5e36;
       --age-living-border: #b5d6bd;
-      --age-deceased-bg: #eee4d5;
-      --age-deceased-text: #6b5640;
-      --age-deceased-border: #d1bea3;
+      --age-deceased-bg: #e6ecf3;
+      --age-deceased-text: #334e68;
+      --age-deceased-border: #b9cadb;
       --nick-text: #9f1239;
       --accent: #b45309;
       --accent-soft: #fef3e2;
@@ -344,10 +344,12 @@
     .pill.pill-living {
       background: var(--age-living-bg);
       color: var(--age-living-text);
+      border: 1px solid var(--age-living-border);
     }
     .pill.pill-deceased {
       background: var(--age-deceased-bg);
       color: var(--age-deceased-text);
+      border: 1px solid var(--age-deceased-border);
     }
 
     .dos-row1 {
@@ -1047,11 +1049,12 @@
           years -= 1;
         }
         if (years < 0) return null;
+        const label = `${years} ${years === 1 ? "yr" : "yrs"}`;
         return {
           years,
           isDeceased: true,
-          cardLabel: `lived ${years} ${years === 1 ? "yr" : "yrs"}`,
-          inspectorLabel: `Lived ${years} ${years === 1 ? "yr" : "yrs"}`,
+          cardLabel: label,
+          inspectorLabel: label,
         };
       }
 
